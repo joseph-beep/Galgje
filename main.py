@@ -1,3 +1,5 @@
+import random
+
 def print_horizontal_line():
   print("--------------------------")
 
@@ -23,3 +25,5 @@ words = [
   "universiteit",
   "heesterperk"
 ]
+
+word = words[random.randint(0, len(words) - 1)]
