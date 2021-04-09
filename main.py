@@ -27,3 +27,10 @@ words = [
 ]
 
 word = words[random.randint(0, len(words) - 1)]
+
+knownLetters = []
+for x in word:
+  knownLetters.append('-')
+
+while True:
+  letter = input("Welk letter: ")[0].lower()
