@@ -27,6 +27,7 @@ words = [
 ]
 
 word = words[random.randint(0, len(words) - 1)]
+lowercasedWord = word.lower();
 
 knownLetters = []
 for x in word:
@@ -34,3 +35,6 @@ for x in word:
 
 while True:
   letter = input("Welk letter: ")[0].lower()
+
+  if letter in lowercasedWord:
+    knownLetters[lowercasedWord.index(letter)] = word[lowercasedWord.index(letter)]
