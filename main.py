@@ -27,19 +27,16 @@ def print_win():
     print("Gefeliciteerd! Jij won!")
     time.sleep(0.1)
 
-  exit()
-
 def print_lose():
   print("")
 
   for i in range(100):
     print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
     time.sleep(0.1)
-  
-  exit()
 
 START_LIVES = 5
 
+# Prints instructions for the game.
 print("WELKOM BIJ GALGJE!")
 print_horizontal_line()
 print("Dit is een spel waarbij je")
@@ -52,6 +49,7 @@ print("Verlies je een leven.")
 print("")
 input("Druk op enter om te beginnen...")
 
+# Prints the loading bar before starting the game.
 print("")
 currentEmpty = "------------"
 currentLoad = ""
@@ -86,6 +84,7 @@ knownLetters = []
 for x in word:
   knownLetters.append('-')
 
+# Main game loop
 while True:
   print_game_statue(knownLetters, lives_left)
 
@@ -93,6 +92,9 @@ while True:
 
   print("")
 
+  # Checks if the letter can be found in the word.
+  # Logic comparing words and letters are all done with lowercased strings.
+  # The reason for this is to keep the code safe from words containing capital letters.
   if letter in lowercasedWord:
     print("GOED")
 
@@ -103,6 +105,7 @@ while True:
 
     if '-' not in knownLetters:
       print_win()
+      break
   else:
     print("FOUT")
 
@@ -110,5 +113,6 @@ while True:
 
     if lives_left == 0:
       print_lose()
+      break
 
   print("")
