@@ -1,7 +1,9 @@
 import random
+import time
 
 def print_horizontal_line():
-  print("--------------------------")
+  print("________________________________________")
+  print("")
 
 def find_letter_index_all(text, letter):
   found_letter_indices = []
@@ -23,6 +25,22 @@ print("allerlei letters te proberen.")
 print("Je hebt alleen vijf levens.")
 print("Wanneer je een foute letter raadt,")
 print("Verlies je een leven.")
+
+print("")
+input("Druk op enter om te beginnen...")
+
+print("")
+currentLoadingText = "Loading"
+for i in range(3):
+  for j in range(5):
+    currentLoadingText += "."
+    print(currentLoadingText, end='\r')
+    time.sleep(0.25)
+
+  currentLoadingText = "Loading"
+  print(currentLoadingText)
+
+print_horizontal_line()
 
 words = [
   "informatica",
@@ -46,6 +64,8 @@ for x in word:
   knownLetters.append('-')
 
 while True:
+  print(''.join(knownLetters))
+
   letter = input("Welk letter: ")[0].lower()
 
   if letter in lowercasedWord:
@@ -53,5 +73,3 @@ while True:
 
     for i in same_letter_indices:
       knownLetters[i] = word[i]
-      
-  print(''.join(knownLetters))
