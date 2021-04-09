@@ -21,11 +21,21 @@ def print_game_statue(known_letters, lives_left):
   print((''.join(known_letters)) + " | Levens over: " + str(lives_left))
 
 def print_win():
-  print("Gefeliciteerd! Jij won!")
+  print("")
+
+  for i in range(100):
+    print("Gefeliciteerd! Jij won!")
+    time.sleep(0.1)
+
   exit()
 
 def print_lose():
-  print("Gefeliciteerd! Jij verloor!")
+  print("")
+
+  for i in range(100):
+    print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
+    time.sleep(0.1)
+  
   exit()
 
 START_LIVES = 5
