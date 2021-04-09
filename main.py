@@ -91,7 +91,11 @@ while True:
 
   letter = input("Welk letter: ")[0].lower()
 
+  print("")
+
   if letter in lowercasedWord:
+    print("GOED")
+
     same_letter_indices = find_letter_index_all(lowercasedWord, letter)
 
     for i in same_letter_indices:
@@ -100,6 +104,8 @@ while True:
     if '-' not in knownLetters:
       print_win()
   else:
+    print("FOUT")
+
     lives_left -= 1
 
     if lives_left == 0:
