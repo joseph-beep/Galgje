@@ -9,3 +9,17 @@ print("allerlei letters te proberen.")
 print("Je hebt alleen vijf levens.")
 print("Wanneer je een foute letter raadt,")
 print("Verlies je een leven.")
+
+words = [
+  "informatica",
+  "informatiekunde",
+  "spelletje",
+  "aardigheidje",
+  "scholier",
+  "fotografie",
+  "waardebepaling",
+  "specialiteit",
+  "verzekering",
+  "universiteit",
+  "heesterperk"
+]
