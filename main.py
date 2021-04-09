@@ -17,7 +17,7 @@ def find_letter_index_all(text, letter):
   
   return found_letter_indices
 
-def print_game_statue(known_letters, lives_left):
+def print_game_status(known_letters, lives_left):
   print((''.join(known_letters)) + " | Levens over: " + str(lives_left))
 
 def print_win():
@@ -51,12 +51,12 @@ input("Druk op enter om te beginnen...")
 
 # Prints the loading bar before starting the game.
 print("")
-currentEmpty = "------------"
-currentLoad = ""
+current_empty = "------------"
+current_load = ""
 for j in range(12):
-  currentLoad += "#"
-  currentEmpty = currentEmpty[1:]
-  print("Loading [" + currentLoad + currentEmpty + "]", end='\r')
+  current_load += "#"
+  current_empty = current_empty[1:]
+  print("Loading [" + current_load + current_empty + "]", end='\r')
   time.sleep(random.uniform(0, 0.5))
 
 print_horizontal_line()
@@ -78,15 +78,15 @@ words = [
 lives_left = START_LIVES
 
 word = words[random.randint(0, len(words) - 1)]
-lowercasedWord = word.lower();
+lowercased_word = word.lower();
 
-knownLetters = []
+known_letters = []
 for x in word:
-  knownLetters.append('-')
+  known_letters.append('-')
 
 # Main game loop
 while True:
-  print_game_statue(knownLetters, lives_left)
+  print_game_status(known_letters, lives_left)
 
   letter = input("Welk letter: ")[0].lower()
 
@@ -95,15 +95,15 @@ while True:
   # Checks if the letter can be found in the word.
   # Logic comparing words and letters are all done with lowercased strings.
   # The reason for this is to keep the code safe from words containing capital letters.
-  if letter in lowercasedWord:
+  if letter in lowercased_word:
     print("GOED")
 
-    same_letter_indices = find_letter_index_all(lowercasedWord, letter)
+    same_letter_indices = find_letter_index_all(lowercased_word, letter)
 
     for i in same_letter_indices:
-      knownLetters[i] = word[i]
+      known_letters[i] = word[i]
 
-    if '-' not in knownLetters:
+    if '-' not in known_letters:
       print_win()
       break
   else:
