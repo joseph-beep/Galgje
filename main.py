@@ -122,7 +122,8 @@ while True:
       print("Voer alleen maar letters in.")
       print("")
       continue
-
+    
+    # Asks the player to type something in!
     if len(letter) == 0:
       print("")
       print("Voer iets in!")
