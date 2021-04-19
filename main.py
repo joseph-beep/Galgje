@@ -99,7 +99,13 @@ while True:
   # Makes sure to only get the first letter of the input and
   # to lowercase that letter to solidify
   # comparing processes.
-  letter = input("Welk letter: ")[0].lower()
+  letter = input("Welk letter: ").lower()
+
+  if len(letter) > 1:
+    print("")
+    print("Voer alleen maar 1 letter in.")
+    print("")
+    continue
 
   print("")
 
