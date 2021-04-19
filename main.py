@@ -27,18 +27,13 @@ def print_game_status(known_letters, lives_left):
 # Prints the win screen.
 def print_win():
   print("")
-
-  for i in range(100):
-    print("Gefeliciteerd! Jij won!")
-    time.sleep(0.1)
+  print("Gefeliciteerd! Jij won!")
 
 # Prints the lose screen.
 def print_lose():
   print("")
 
-  for i in range(100):
-    print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
-    time.sleep(0.1)
+  print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
 
 START_LIVES = 5
 
@@ -64,7 +59,7 @@ for j in range(12):
   current_load += "#"
   current_empty = current_empty[1:]
   print("Loading [" + current_load + current_empty + "]", end='\r')
-  time.sleep(random.uniform(0, 0.5))
+  time.sleep(random.uniform(0, 0.125))
 
 print_horizontal_line()
 
