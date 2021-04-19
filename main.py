@@ -21,8 +21,9 @@ def find_letter_index_all(text, letter):
   return found_letter_indices
 
 # Prints the status of the player at a moment of the game.
-def print_game_status(known_letters, lives_left):
+def print_game_status(known_letters, lives_left, incorrect_letters):
   print((''.join(known_letters)) + " | Levens over: " + str(lives_left))
+  print("Incorrect: " + ", ".join(incorrect_letters))
 
 # Prints the win screen.
 def print_win():
@@ -32,7 +33,6 @@ def print_win():
 # Prints the lose screen.
 def print_lose():
   print("")
-
   print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
 
 START_LIVES = 5
@@ -63,6 +63,8 @@ for j in range(12):
 
 print_horizontal_line()
 
+incorrect_letters = []
+
 words = [
   "informatica",
   "informatiekunde",
@@ -90,7 +92,7 @@ for x in word:
 
 # Main game loop
 while True:
-  print_game_status(known_letters, lives_left)
+  print_game_status(known_letters, lives_left, incorrect_letters)
 
   # Asks the player to choose a letter.
   # Makes sure to only get the first letter of the input and
@@ -118,6 +120,9 @@ while True:
       break
   else:
     print("FOUT")
+
+    if letter not in incorrect_letters:
+      incorrect_letters.append(letter)
 
     lives_left -= 1
 
