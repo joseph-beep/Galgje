@@ -163,9 +163,13 @@ while True:
   print("")
 
   # Asks the player if he wants to play another game of Galgje.
-  while response != "Y" and response != "N":
-    response = input("Wil je weer spelen? Y = Ja; N = Nee. Voer in: ")
+  while response != "ja" and response != "nee":
+    response = input("Wil je weer spelen? Voer in 'JA' of 'NEE': ").lower()
 
   # Exits the game if the player answers with N.
-  if response == "N":
+  if response == "nee":
     break
+
+  print("")
+  print("")
+  print("")
