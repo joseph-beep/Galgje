@@ -64,8 +64,6 @@ for j in range(12):
 
 print_horizontal_line()
 
-incorrect_letters = []
-
 words = [
   "informatica",
   "informatiekunde",
@@ -80,19 +78,21 @@ words = [
   "heesterperk"
 ]
 
-lives_left = START_LIVES
-
-# Pick a word randomly from the list of words above.
-word = words[random.randint(0, len(words) - 1)]
-lowercased_word = word.lower();
-
-# Setup list of known letters with empty dashes to begin.
-known_letters = []
-for x in word:
-  known_letters.append('-')
-
 # Try again loop
 while True:
+  lives_left = START_LIVES
+
+  incorrect_letters = []
+
+  # Pick a word randomly from the list of words above.
+  word = words[random.randint(0, len(words) - 1)]
+  lowercased_word = word.lower();
+
+  # Setup list of known letters with empty dashes to begin.
+  known_letters = []
+  for x in word:
+    known_letters.append('-')
+
   response = ""
 
   # Main game loop
