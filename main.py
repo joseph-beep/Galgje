@@ -123,6 +123,12 @@ while True:
       print("")
       continue
 
+    if len(letter) == 0:
+      print("")
+      print("Voer iets in!")
+      print("")
+      continue
+
     print("")
 
     # Checks if the letter can be found in the word.
