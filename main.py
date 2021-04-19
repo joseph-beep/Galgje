@@ -23,7 +23,8 @@ def find_letter_index_all(text, letter):
 # Prints the status of the player at a moment of the game.
 def print_game_status(known_letters, lives_left, incorrect_letters):
   print((''.join(known_letters)) + " | Levens over: " + str(lives_left))
-  print("Incorrect: " + ", ".join(incorrect_letters))
+  if len(incorrect_letters) > 0:
+    print("Incorrect: " + ", ".join(incorrect_letters))
 
 # Prints the win screen.
 def print_win():
