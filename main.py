@@ -91,51 +91,65 @@ known_letters = []
 for x in word:
   known_letters.append('-')
 
-# Main game loop
+# Try again loop
 while True:
-  print_game_status(known_letters, lives_left, incorrect_letters)
+  response = ""
 
-  # Asks the player to choose a letter.
-  # Makes sure to only get the first letter of the input and
-  # to lowercase that letter to solidify
-  # comparing processes.
-  letter = input("Welk letter: ").lower()
+  # Main game loop
+  while True:
+    print_game_status(known_letters, lives_left, incorrect_letters)
 
-  if len(letter) > 1:
+    # Asks the player to choose a letter.
+    # Makes sure to only get the first letter of the input and
+    # to lowercase that letter to solidify
+    # comparing processes.
+    letter = input("Welk letter: ").lower()
+
+    if len(letter) > 1:
+      print("")
+      print("Voer alleen maar 1 letter in.")
+      print("")
+      continue
+
     print("")
-    print("Voer alleen maar 1 letter in.")
+
+    # Checks if the letter can be found in the word.
+    # Logic comparing words and letters are all done with lowercased strings.
+    # The reason for this is to keep the code safe from words containing capital letters.
+    if letter in lowercased_word:
+      print("GOED")
+      
+      same_letter_indices = find_letter_index_all(lowercased_word, letter)
+
+      # Replaces all indices of the letter in the known letters list.
+      for i in same_letter_indices:
+        known_letters[i] = word[i]
+
+      # Checks if there are any dashes left. If not, the player has won!
+      if '-' not in known_letters:
+        print_win()
+        break
+    else:
+      print("FOUT")
+
+      if letter not in incorrect_letters:
+        incorrect_letters.append(letter)
+
+      lives_left -= 1
+
+      # Checks if there are no lives left. If so, the player has lost!
+      if lives_left == 0:
+        print_lose()
+        break
+
     print("")
-    continue
 
   print("")
-
-  # Checks if the letter can be found in the word.
-  # Logic comparing words and letters are all done with lowercased strings.
-  # The reason for this is to keep the code safe from words containing capital letters.
-  if letter in lowercased_word:
-    print("GOED")
-    
-    same_letter_indices = find_letter_index_all(lowercased_word, letter)
-
-    # Replaces all indices of the letter in the known letters list.
-    for i in same_letter_indices:
-      known_letters[i] = word[i]
-
-    # Checks if there are any dashes left. If not, the player has won!
-    if '-' not in known_letters:
-      print_win()
-      break
-  else:
-    print("FOUT")
-
-    if letter not in incorrect_letters:
-      incorrect_letters.append(letter)
-
-    lives_left -= 1
-
-    # Checks if there are no lives left. If so, the player has lost!
-    if lives_left == 0:
-      print_lose()
-      break
-
   print("")
+  print("")
+
+  while response != "Y" and response != "N":
+    response = input("Wil je weer spelen? Y = Ja; N = Nee. Voer in: ")
+
+  if response == "N":
+    break
