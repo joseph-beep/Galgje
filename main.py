@@ -36,6 +36,9 @@ def print_lose():
   print("")
   print("Gefeliciteerd! Jij verloor! Het woord was " + word + ".")
 
+def has_number(s):
+  return any(i.isdigit() for i in s)
+
 START_LIVES = 5
 
 # Prints instructions for the game.
@@ -108,6 +111,12 @@ while True:
     if len(letter) > 1:
       print("")
       print("Voer alleen maar 1 letter in.")
+      print("")
+      continue
+
+    if has_number(letter):
+      print("")
+      print("Voer alleen maar letters in.")
       print("")
       continue
 
