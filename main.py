@@ -67,6 +67,7 @@ for j in range(12):
 
 print_horizontal_line()
 
+# This is the list of words possible.
 words = [
   "informatica",
   "informatiekunde",
@@ -108,12 +109,14 @@ while True:
     # comparing processes.
     letter = input("Welk letter: ").lower()
 
+    # Asks the player to only type in one letter.
     if len(letter) > 1:
       print("")
       print("Voer alleen maar 1 letter in.")
       print("")
       continue
 
+    # Asks the player to only type in letters, not numbers.
     if has_number(letter):
       print("")
       print("Voer alleen maar letters in.")
@@ -141,6 +144,7 @@ while True:
     else:
       print("FOUT")
 
+      # Adds unique incorrect letters to the list of incorrect letters.
       if letter not in incorrect_letters:
         incorrect_letters.append(letter)
         incorrect_letters.sort()
@@ -158,8 +162,10 @@ while True:
   print("")
   print("")
 
+  # Asks the player if he wants to play another game of Galgje.
   while response != "Y" and response != "N":
     response = input("Wil je weer spelen? Y = Ja; N = Nee. Voer in: ")
 
+  # Exits the game if the player answers with N.
   if response == "N":
     break
