@@ -134,6 +134,7 @@ while True:
 
       if letter not in incorrect_letters:
         incorrect_letters.append(letter)
+        incorrect_letters.sort()
 
       lives_left -= 1
 
